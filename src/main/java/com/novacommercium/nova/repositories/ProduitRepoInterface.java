@@ -9,4 +9,6 @@ public interface ProduitRepoInterface extends JpaRepository<Produit, Integer> {
 
     @Query(value = "SELECT p FROM Produit p WHERE p.name= :name")
     public Produit getProductByName(@Param("name") String name);
+
+
 }
