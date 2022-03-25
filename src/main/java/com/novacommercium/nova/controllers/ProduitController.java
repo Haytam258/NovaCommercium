@@ -3,6 +3,7 @@ package com.novacommercium.nova.controllers;
 
 import com.novacommercium.nova.model.Produit;
 import com.novacommercium.nova.services.ProduitService;
+import com.novacommercium.nova.services.ProduitServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/")
 public class ProduitController {
 
-    private final ProduitService productService;
+    private final ProduitServiceInterface productService;
 
     @Autowired
     public ProduitController(ProduitService productService){
