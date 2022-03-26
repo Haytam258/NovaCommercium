@@ -17,9 +17,9 @@ public class Cooperative {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int Id;
 
-    @Column(name="nom")
+    @Column(name="name")
     private String nom;
 
-    @Column(name="numeroDeTel")
+    @Column(name="numero_de_tel")
     private int numeroDeTel;
 }

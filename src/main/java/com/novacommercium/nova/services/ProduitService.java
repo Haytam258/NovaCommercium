@@ -6,6 +6,8 @@ import com.novacommercium.nova.repositories.ProduitRepoInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ProduitService implements ProduitServiceInterface {
 
@@ -40,5 +42,9 @@ public class ProduitService implements ProduitServiceInterface {
     public Produit getProductThroughName(String name){
         Produit product = productRepo.getProductByName(name);
         return product;
+    }
+
+    public List<Produit> getAllProducts(){
+        return productRepo.findAll();
     }
 }

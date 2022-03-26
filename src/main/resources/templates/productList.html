@@ -15,7 +15,7 @@
     </div>
     <div class="container-fluid">
         <div class="row justify-content-center">
-            <div class="col-auto" th:object="${helloProduct}">
+            <div class="col-auto">
                 <table class="table table-hover table-bordered table-responsive">
                     <thead>
                         <tr>
@@ -30,14 +30,14 @@
         
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
+                    <tbody >
+                        <tr th:each="product : ${prodList}">
         
-                            <td class="col" th:text="*{name}">Nom du produit</td>
-                            <td class="col" th:text="*{prix}">Prix du produit</td>
-                            <td class="col" th:text="*{unite}">Unité disponible</td>
-                            <td class="col" th:text="*{description}">Description du produit</td>
-                            <td class="col"><a th:href="@{/deleteProduct(id=*{id})}"><button class="btn btn-primary">Delete </button></a></td>
+                            <td class="col" th:text="*{product.name}">Nom du produit</td>
+                            <td class="col" th:text="*{product.prix}">Prix du produit</td>
+                            <td class="col" th:text="*{product.unite}">Unité disponible</td>
+                            <td class="col" th:text="*{product.description}">Description du produit</td>
+                            <td class="col"><a th:href="@{/deleteProduct(id=*{product.id})}"><button class="btn btn-primary">Delete </button></a></td>
 
         
                         </tr>

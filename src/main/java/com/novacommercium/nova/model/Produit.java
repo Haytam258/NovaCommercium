@@ -16,12 +16,16 @@ public class Produit {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Column(name="name")
     private String name;
 
+    @Column(name="description")
     private String description;
 
+    @Column(name="prix")
     private double prix;
 
+    @Column(name="unite")
     private int unite;
 
 }

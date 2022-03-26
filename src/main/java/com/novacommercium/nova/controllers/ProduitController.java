@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/")
 public class ProduitController {
@@ -38,16 +40,15 @@ public class ProduitController {
 
     @RequestMapping("/productList")
     public String productList(Model model){
-        Produit prod = productService.getProductThroughName("hello");
-        model.addAttribute("helloProduct", prod);
+        List<Produit> prodList = productService.getAllProducts();
+        model.addAttribute("prodList", prodList);
         return "productList";
     }
 
     @RequestMapping("/deleteProduct")
     public String deleteProduct(@RequestParam Long id){
         //This one works as well, Note : the value passed in the form is not an int but a Long int type, so be careful!
-        System.out.println(id);
-       // productService.deleteProductById(id);
+        productService.deleteProductById(Math.toIntExact(id));
         return "redirect:/productList";
     }
 }

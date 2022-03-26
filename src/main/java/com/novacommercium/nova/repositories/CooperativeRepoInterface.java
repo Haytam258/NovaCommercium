@@ -1,4 +1,7 @@
 package com.novacommercium.nova.repositories;
 
-public interface CooperativeRepoInterface {
+import com.novacommercium.nova.model.Cooperative;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CooperativeRepoInterface extends JpaRepository<Cooperative, Integer> {
 }
