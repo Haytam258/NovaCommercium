@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="produit")
@@ -27,5 +28,11 @@ public class Produit {
 
     @Column(name="unite")
     private int unite;
+
+    @ManyToMany
+    @JoinTable(name = "origine_produit",
+    joinColumns =@JoinColumn(name="produit_id"),
+    inverseJoinColumns = @JoinColumn(name="origine_id"))
+    private List<Origine> origineList;
 
 }

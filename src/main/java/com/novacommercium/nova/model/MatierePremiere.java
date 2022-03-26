@@ -4,8 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.aspectj.weaver.ast.Or;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data @AllArgsConstructor @NoArgsConstructor @ToString
@@ -17,4 +19,10 @@ public class MatierePremiere {
 
     @Column(name = "name")
     private String name;
+
+    @ManyToMany
+    @JoinTable(name = "origine_matiere",
+    joinColumns = @JoinColumn(name = "matiere_id"),
+    inverseJoinColumns = @JoinColumn(name = "origine_id"))
+    private List<Origine> origineList;
 }
