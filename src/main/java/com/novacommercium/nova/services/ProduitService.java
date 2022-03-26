@@ -47,4 +47,7 @@ public class ProduitService implements ProduitServiceInterface {
     public List<Produit> getAllProducts(){
         return productRepo.findAll();
     }
+    public Produit getProductById(int id){
+        return productRepo.getById(id);
+    }
 }

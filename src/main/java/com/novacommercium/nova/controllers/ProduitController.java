@@ -51,4 +51,11 @@ public class ProduitController {
         productService.deleteProductById(Math.toIntExact(id));
         return "redirect:/productList";
     }
+
+    @GetMapping("/product/{id}")
+    public String getProduct(@PathVariable Long id, Model model){
+        Produit product = productService.getProductById(Math.toIntExact(id));
+        model.addAttribute("product", product);
+        return "productPage";
+    }
 }
