@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -35,4 +36,25 @@ public class Produit {
     inverseJoinColumns = @JoinColumn(name="origine_id"))
     private List<Origine> origineList;
 
+    @ManyToMany
+    @JoinTable(name = "produit_matiere",
+    joinColumns = @JoinColumn(name ="produit_id"),
+    inverseJoinColumns = @JoinColumn(name="matiere_id"))
+    private List<MatierePremiere> matierePremiereList;
+
+    public void addMatierePremiere(MatierePremiere matierePremiere){
+        if(matierePremiereList == null){
+            matierePremiereList = new ArrayList<>();
+        }
+
+        matierePremiereList.add(matierePremiere);
+    }
+
+    public void addOrigine(Origine origine){
+        if(origineList == null){
+            origineList = new ArrayList<>();
+        }
+
+        origineList.add(origine);
+    }
 }

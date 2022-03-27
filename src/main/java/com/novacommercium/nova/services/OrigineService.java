@@ -1,5 +1,6 @@
 package com.novacommercium.nova.services;
 
+import com.novacommercium.nova.model.MatierePremiere;
 import com.novacommercium.nova.model.Origine;
 import com.novacommercium.nova.repositories.OrigineRepoInterface;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,5 +43,13 @@ public class OrigineService implements OrigineServiceInterface{
     public void modifyOrigine(Origine origine,String endroit){
         origine.setEndroit(endroit);
         origineRepo.saveAndFlush(origine);
+    }
+
+    public List<Origine> getOriginesByMatiereList(List<MatierePremiere> matierePremiereList){
+        return origineRepo.getOriginesByMatierePremiereList(matierePremiereList);
+    }
+
+    public Origine getOrigineByMatiereList(List<MatierePremiere> matierePremiereList){
+        return origineRepo.getOrigineByMatierePremiereList(matierePremiereList);
     }
 }

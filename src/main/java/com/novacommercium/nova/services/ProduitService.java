@@ -1,6 +1,8 @@
 package com.novacommercium.nova.services;
 
 
+import com.novacommercium.nova.model.MatierePremiere;
+import com.novacommercium.nova.model.Origine;
 import com.novacommercium.nova.model.Produit;
 import com.novacommercium.nova.repositories.ProduitRepoInterface;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,4 +52,24 @@ public class ProduitService implements ProduitServiceInterface {
     public Produit getProductById(int id){
         return productRepo.getById(id);
     }
+
+    public List<Produit> getProductsByMatiereList(List<MatierePremiere> matierePremiereList){
+        return productRepo.getProduitsByMatierePremiereList(matierePremiereList);
+    }
+
+    public Produit getProductByMatiereList(List<MatierePremiere> matierePremiereList){
+        return productRepo.getProduitByMatierePremiereList(matierePremiereList);
+    }
+
+    public void addMatiereToProduit(Produit produit,MatierePremiere matierePremiere){
+        produit.addMatierePremiere(matierePremiere);
+        productRepo.saveAndFlush(produit);
+    }
+
+    public void addOrigineToProduit(Produit produit, Origine origine){
+        produit.addOrigine(origine);
+        productRepo.saveAndFlush(produit);
+    }
+
+
 }
