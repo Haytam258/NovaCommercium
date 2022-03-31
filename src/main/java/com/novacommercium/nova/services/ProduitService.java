@@ -21,7 +21,7 @@ public class ProduitService implements ProduitServiceInterface {
     }
 
     public void createProduct(Produit product){
-        productRepo.save(product);
+        productRepo.saveAndFlush(product);
     }
 
     public void deleteProduct(Produit product){
@@ -53,14 +53,14 @@ public class ProduitService implements ProduitServiceInterface {
         return productRepo.getById(id);
     }
 
-    public List<Produit> getProductsByMatiereList(List<MatierePremiere> matierePremiereList){
+    /*public List<Produit> getProductsByMatiereList(List<MatierePremiere> matierePremiereList){
         return productRepo.getProduitsByMatierePremiereList(matierePremiereList);
     }
 
     public Produit getProductByMatiereList(List<MatierePremiere> matierePremiereList){
         return productRepo.getProduitByMatierePremiereList(matierePremiereList);
     }
-
+ */
     public void addMatiereToProduit(Produit produit,MatierePremiere matierePremiere){
         produit.addMatierePremiere(matierePremiere);
         productRepo.saveAndFlush(produit);

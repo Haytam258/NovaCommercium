@@ -45,11 +45,11 @@ public class OrigineService implements OrigineServiceInterface{
         origineRepo.saveAndFlush(origine);
     }
 
-    public List<Origine> getOriginesByMatiereList(List<MatierePremiere> matierePremiereList){
+   /* public List<Origine> getOriginesByMatiereList(List<MatierePremiere> matierePremiereList){
         return origineRepo.getOriginesByMatierePremiereList(matierePremiereList);
     }
 
     public Origine getOrigineByMatiereList(List<MatierePremiere> matierePremiereList){
         return origineRepo.getOrigineByMatierePremiereList(matierePremiereList);
-    }
+    }*/
 }

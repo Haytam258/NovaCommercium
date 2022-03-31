@@ -2,9 +2,11 @@ package com.novacommercium.nova.services;
 
 import com.novacommercium.nova.model.MatierePremiere;
 import com.novacommercium.nova.model.Origine;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public interface OrigineServiceInterface {
 
     public void addOrigine(Origine origine);
@@ -14,7 +16,7 @@ public interface OrigineServiceInterface {
     public Origine getOrigineByEndroit(String endroit);
     public List<Origine> getOrigines();
     public void modifyOrigine(Origine origine,String endroit);
-    public List<Origine> getOriginesByMatiereList(List<MatierePremiere> matierePremiereList);
-    public Origine getOrigineByMatiereList(List<MatierePremiere> matierePremiereList);
+    /*public List<Origine> getOriginesByMatiereList(List<MatierePremiere> matierePremiereList);
+    public Origine getOrigineByMatiereList(List<MatierePremiere> matierePremiereList);*/
 
 }

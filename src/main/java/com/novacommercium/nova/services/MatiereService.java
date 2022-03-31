@@ -45,12 +45,12 @@ public class MatiereService implements MatiereServiceInterface{
         matiereRepo.saveAndFlush(matiere);
     }
 
-    public List<MatierePremiere> getMatieresByOrigineList(List<Origine> origineList){
+    /*public List<MatierePremiere> getMatieresByOrigineList(List<Origine> origineList){
         return matiereRepo.getMatierePremieresByOrigineList(origineList);
     }
 
     public MatierePremiere getMatiereByOrigineList(List<Origine> origineList){
         return matiereRepo.getMatierePremiereByOrigineList(origineList);
-    }
+    }*/
 
 }

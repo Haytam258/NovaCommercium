@@ -1,4 +1,4 @@
-package com.novacommercium.nova.controllers;
+package com.novacommercium.nova.rest;
 
 
 import com.novacommercium.nova.model.Produit;
@@ -58,4 +58,5 @@ public class ProduitController {
         model.addAttribute("product", product);
         return "productPage";
     }
+
 }

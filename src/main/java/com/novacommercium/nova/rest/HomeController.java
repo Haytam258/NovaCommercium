@@ -1,4 +1,4 @@
-package com.novacommercium.nova.controllers;
+package com.novacommercium.nova.rest;
 
 
 import org.springframework.stereotype.Controller;
