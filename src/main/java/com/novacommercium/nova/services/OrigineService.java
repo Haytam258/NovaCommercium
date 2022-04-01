@@ -29,7 +29,7 @@ public class OrigineService implements OrigineServiceInterface{
     }
 
     public Origine getOrigineById(int id){
-        return origineRepo.getById(id);
+        return origineRepo.findById(id).get();
     }
 
     public Origine getOrigineByEndroit(String endroit){

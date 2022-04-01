@@ -11,8 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
-@RequestMapping("/")
+@RestController
 public class ProduitController {
 
     private final ProduitServiceInterface productService;
@@ -23,40 +22,38 @@ public class ProduitController {
     }
 
 
-    @GetMapping("/createProduct")
+    @GetMapping("/showProduct")
     public String showPageCreateProduct(Model model){
         model.addAttribute("newProduct", new Produit());
         return "createProduct";
     }
 
     @PostMapping("/createProduct")
-    public String createProduct(@ModelAttribute Produit product, Model model){
+    public void createProduct(@RequestBody Produit product){
         //It works, adds the entry to database so we're good on this part so far :D
         productService.createProduct(product);
-        model.addAttribute("newProduct", product);
-        return "createProduct";
-
     }
 
-    @RequestMapping("/productList")
-    public String productList(Model model){
-        List<Produit> prodList = productService.getAllProducts();
-        model.addAttribute("prodList", prodList);
-        return "productList";
+    @GetMapping("/productList")
+    public List<Produit> productList(){
+        return productService.getAllProducts();
     }
 
-    @RequestMapping("/deleteProduct")
-    public String deleteProduct(@RequestParam Long id){
+    @DeleteMapping("/deleteProduct")
+    public void deleteProduct(@RequestParam Long id){
         //This one works as well, Note : the value passed in the form is not an int but a Long int type, so be careful!
         productService.deleteProductById(Math.toIntExact(id));
-        return "redirect:/productList";
     }
 
     @GetMapping("/product/{id}")
-    public String getProduct(@PathVariable Long id, Model model){
+    public Produit getProduct(@PathVariable Long id){
         Produit product = productService.getProductById(Math.toIntExact(id));
-        model.addAttribute("product", product);
-        return "productPage";
+        return product;
+    }
+
+    @PutMapping("/product/{id}")
+    public Produit updateProduct(@PathVariable Long id, @RequestBody Produit product){
+        return productService.updateProduct(Math.toIntExact(id), product);
     }
 
 }

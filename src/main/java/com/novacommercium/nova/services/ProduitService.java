@@ -41,6 +41,15 @@ public class ProduitService implements ProduitServiceInterface {
         productRepo.saveAndFlush(product);
     }
 
+    public Produit updateProduct(int id, Produit product){
+        Produit prod = productRepo.findById(id).get();
+        prod.setName(product.getName());
+        prod.setPrix(product.getPrix());
+        prod.setDescription(product.getDescription());
+        prod.setUnite(product.getUnite());
+        return prod;
+    }
+
     public Produit getProductThroughName(String name){
         Produit product = productRepo.getProductByName(name);
         return product;
@@ -50,7 +59,7 @@ public class ProduitService implements ProduitServiceInterface {
         return productRepo.findAll();
     }
     public Produit getProductById(int id){
-        return productRepo.getById(id);
+        return productRepo.findById(id).get();
     }
 
     /*public List<Produit> getProductsByMatiereList(List<MatierePremiere> matierePremiereList){

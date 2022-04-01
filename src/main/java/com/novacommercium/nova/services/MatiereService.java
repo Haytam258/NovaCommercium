@@ -29,7 +29,7 @@ public class MatiereService implements MatiereServiceInterface{
     }
 
     public MatierePremiere getMatiereById(int id){
-        return matiereRepo.getById(id);
+        return matiereRepo.findById(id).get();
     }
 
     public MatierePremiere getMatiereByName(String name){

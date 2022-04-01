@@ -20,4 +20,5 @@ public interface ProduitServiceInterface {
     public List<Produit> getProductsByMatiereList(List<MatierePremiere> matierePremiereList); */
     public void addMatiereToProduit(Produit produit,MatierePremiere matierePremiere);
     public void addOrigineToProduit(Produit produit, Origine origine);
+    public Produit updateProduct(int id, Produit product);
 }
