@@ -47,6 +47,7 @@ public class ProduitService implements ProduitServiceInterface {
         prod.setPrix(product.getPrix());
         prod.setDescription(product.getDescription());
         prod.setUnite(product.getUnite());
+        productRepo.saveAndFlush(prod);
         return prod;
     }
 

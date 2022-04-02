@@ -50,6 +50,7 @@ public class MatiereService implements MatiereServiceInterface{
     public MatierePremiere updateMatiere(int id, MatierePremiere matierePremiere){
         MatierePremiere mat = matiereRepo.findById(id).get();
         mat.setName(matierePremiere.getName());
+        matiereRepo.saveAndFlush(mat);
         return mat;
     }
 
