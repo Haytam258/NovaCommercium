@@ -1,7 +1,9 @@
 package com.novacommercium.nova.rest;
 
 
+import com.novacommercium.nova.model.MatierePremiere;
 import com.novacommercium.nova.model.Produit;
+import com.novacommercium.nova.services.MatiereServiceInterface;
 import com.novacommercium.nova.services.ProduitService;
 import com.novacommercium.nova.services.ProduitServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -16,9 +19,12 @@ public class ProduitController {
 
     private final ProduitServiceInterface productService;
 
+    private final MatiereServiceInterface matiereService;
+
     @Autowired
-    public ProduitController(ProduitService productService){
+    public ProduitController(ProduitServiceInterface productService, MatiereServiceInterface matiereService ){
         this.productService = productService;
+        this.matiereService = matiereService;
     }
 
 
@@ -55,5 +61,21 @@ public class ProduitController {
     public Produit updateProduct(@PathVariable Long id, @RequestBody Produit product){
         return productService.updateProduct(Math.toIntExact(id), product);
     }
+
+    @GetMapping("/productMatiere")
+    public Produit getProduitFromMatiere(@RequestBody MatierePremiere matierePremiere){
+        List<MatierePremiere> matList = new ArrayList<>();
+        matList.add(matierePremiere);
+        return productService.getProductByMatiereList(matList);
+    }
+
+    @GetMapping("/productMatiereID/{id}")
+    public Produit getProduitFromMatiereID(@PathVariable Long id){
+        MatierePremiere mat = matiereService.getMatiereById(Math.toIntExact(id));
+        List<MatierePremiere> matList = new ArrayList<>();
+        matList.add(mat);
+        return productService.getProductByMatiereList(matList);
+    }
+
 
 }

@@ -77,12 +77,12 @@ public class MatiereService implements MatiereServiceInterface{
         return mat;
     }
 
-    /*public List<MatierePremiere> getMatieresByOrigineList(List<Origine> origineList){
-        return matiereRepo.getMatierePremieresByOrigineList(origineList);
+    public List<MatierePremiere> getMatieresByOrigineList(List<Origine> origineList){
+        return matiereRepo.findMatierePremieresByOrigineListIn(origineList);
     }
 
     public MatierePremiere getMatiereByOrigineList(List<Origine> origineList){
-        return matiereRepo.getMatierePremiereByOrigineList(origineList);
-    }*/
+        return matiereRepo.findMatierePremiereByOrigineListIn(origineList);
+    }
 
 }

@@ -9,6 +9,7 @@ import java.util.List;
 public interface OrigineRepoInterface extends JpaRepository<Origine, Integer> {
 
     public Origine findOrigineByEndroit(String endroit);
-    /*public List<Origine> getOriginesByMatierePremiereList(List<MatierePremiere> matierePremiereList);
-    public Origine getOrigineByMatierePremiereList(List<MatierePremiere> matierePremiereList);*/
+    //Need to add "in" at the end, otherwise it's not valid in JPA
+    public List<Origine> findOriginesByMatierePremiereListIn(List<MatierePremiere> matierePremiereList);
+    public Origine findOrigineByMatierePremiereListIn(List<MatierePremiere> matierePremiereList);
 }

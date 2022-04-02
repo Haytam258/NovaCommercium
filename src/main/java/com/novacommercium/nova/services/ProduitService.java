@@ -67,14 +67,13 @@ public class ProduitService implements ProduitServiceInterface {
         return productRepo.findById(id).get();
     }
 
-    /*public List<Produit> getProductsByMatiereList(List<MatierePremiere> matierePremiereList){
-        return productRepo.getProduitsByMatierePremiereList(matierePremiereList);
+    public List<Produit> getProductsByMatiereList(List<MatierePremiere> matierePremiereList){
+        return productRepo.findProduitsByMatierePremiereListIn(matierePremiereList);
     }
 
     public Produit getProductByMatiereList(List<MatierePremiere> matierePremiereList){
-        return productRepo.getProduitByMatierePremiereList(matierePremiereList);
+        return productRepo.findProduitByMatierePremiereListIn(matierePremiereList);
     }
- */
     public Produit addMatiereToProduit(int id,MatierePremiere matierePremiere){
         Produit produit = productRepo.findById(id).get();
         produit.addMatierePremiere(matierePremiere);

@@ -54,11 +54,11 @@ public class OrigineService implements OrigineServiceInterface{
         return orig;
     }
 
-   /* public List<Origine> getOriginesByMatiereList(List<MatierePremiere> matierePremiereList){
-        return origineRepo.getOriginesByMatierePremiereList(matierePremiereList);
+   public List<Origine> getOriginesByMatiereList(List<MatierePremiere> matierePremiereList){
+        return origineRepo.findOriginesByMatierePremiereListIn(matierePremiereList);
     }
 
     public Origine getOrigineByMatiereList(List<MatierePremiere> matierePremiereList){
-        return origineRepo.getOrigineByMatierePremiereList(matierePremiereList);
-    }*/
+        return origineRepo.findOrigineByMatierePremiereListIn(matierePremiereList);
+    }
 }

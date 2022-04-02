@@ -16,7 +16,7 @@ public interface OrigineServiceInterface {
     public List<Origine> getOrigines();
     public void modifyOrigine(Origine origine,String endroit);
     public Origine updateOrigine(int id, Origine origine);
-    /*public List<Origine> getOriginesByMatiereList(List<MatierePremiere> matierePremiereList);
-    public Origine getOrigineByMatiereList(List<MatierePremiere> matierePremiereList);*/
+    public List<Origine> getOriginesByMatiereList(List<MatierePremiere> matierePremiereList);
+    public Origine getOrigineByMatiereList(List<MatierePremiere> matierePremiereList);
 
 }

@@ -11,7 +11,7 @@ import java.util.List;
 public interface ProduitRepoInterface extends JpaRepository<Produit, Integer> {
 
     public Produit findProduitByName(String name);
-    /*public List<Produit> getProduitsByMatierePremiereList(List<MatierePremiere> matierePremiereList);
-    public Produit getProduitByMatierePremiereList(List<MatierePremiere> matierePremiereList);*/
+    public List<Produit> findProduitsByMatierePremiereListIn(List<MatierePremiere> matierePremiereList);
+    public Produit findProduitByMatierePremiereListIn(List<MatierePremiere> matierePremiereList);
 
 }

@@ -16,8 +16,8 @@ public interface ProduitServiceInterface {
     public Produit getProductThroughName(String name);
     public List<Produit> getAllProducts();
     public Produit getProductById(int id);
-   /* public Produit getProductByMatiereList(List<MatierePremiere> matierePremiereList);
-    public List<Produit> getProductsByMatiereList(List<MatierePremiere> matierePremiereList); */
+    public Produit getProductByMatiereList(List<MatierePremiere> matierePremiereList);
+    public List<Produit> getProductsByMatiereList(List<MatierePremiere> matierePremiereList);
     public Produit addMatiereToProduit(int id,MatierePremiere matierePremiere);
     public void addOrigineToProduit(Produit produit, Origine origine);
     public Produit updateProduct(int id, Produit product);

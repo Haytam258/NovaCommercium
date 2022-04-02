@@ -9,6 +9,6 @@ import java.util.List;
 public interface MatierePreRepoInterface extends JpaRepository<MatierePremiere, Integer> {
 
     public MatierePremiere findByName(String name);
-    /*public MatierePremiere getMatierePremiereByOrigineList(List<Origine> origineList);
-    public List<MatierePremiere> getMatierePremieresByOrigineList(List<Origine> origineList);*/
+    public MatierePremiere findMatierePremiereByOrigineListIn(List<Origine> origineList);
+    public List<MatierePremiere> findMatierePremieresByOrigineListIn(List<Origine> origineList);
 }
