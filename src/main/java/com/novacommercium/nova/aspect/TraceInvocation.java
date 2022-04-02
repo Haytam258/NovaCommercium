@@ -21,7 +21,13 @@ public class TraceInvocation {
     @Pointcut("execution(* com.novacommercium.nova.services.ProduitService..*(..))")
     public void traceInvocationPointcut() { }
 
-    @Around("traceInvocationPointcut()")
+    @Pointcut("execution(* com.novacommercium.nova.services.MatiereService..*(..))")
+    public void traceMatierePointcut() { }
+
+    @Pointcut("execution(* com.novacommercium.nova.services.OrigineService..*(..))")
+    public void traceOriginePointcut() { }
+
+    @Around("traceInvocationPointcut() || traceMatierePointcut() || traceOriginePointcut()")
     public Object afficherTrace( ProceedingJoinPoint joinpoint) throws Throwable {
         String nomMethode = joinpoint.getTarget().getClass().getSimpleName() + "."
                 + joinpoint.getSignature().getName();
