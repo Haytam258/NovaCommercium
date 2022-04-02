@@ -2,6 +2,7 @@ package com.novacommercium.nova.rest;
 
 
 import com.novacommercium.nova.model.MatierePremiere;
+import com.novacommercium.nova.model.Origine;
 import com.novacommercium.nova.services.MatiereService;
 import com.novacommercium.nova.services.MatiereServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,5 +43,15 @@ public class MatiereController {
     @PostMapping("/createMatiere")
     public void createMatiere(@RequestBody MatierePremiere matierePremiere){
         matiereService.addMatiere(matierePremiere);
+    }
+
+    @PostMapping("/addOrigineMatiere/{id}")
+    public MatierePremiere addOrigineToM(@PathVariable Long id, @RequestBody Origine origine){
+        return matiereService.addOrigineToMatiere(Math.toIntExact(id), origine);
+    }
+
+    @PutMapping("/addOrigineMatiere")
+    public MatierePremiere addExisitingOrigineMatiere(@RequestParam int idm, @RequestParam int ido){
+        return matiereService.addExisitingOrigineToMatiere(idm, ido);
     }
 }

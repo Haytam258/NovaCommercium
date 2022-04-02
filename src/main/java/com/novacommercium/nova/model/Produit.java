@@ -1,5 +1,6 @@
 package com.novacommercium.nova.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -30,13 +31,15 @@ public class Produit {
     @Column(name="unite")
     private int unite;
 
-    @ManyToMany
+    //Added cascadetype.All in order to save all new associated entities through HTTP to the Database before doing the add Function.
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "origine_produit",
     joinColumns =@JoinColumn(name="produit_id"),
     inverseJoinColumns = @JoinColumn(name="origine_id"))
+    @JsonManagedReference
     private List<Origine> origineList;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "produit_matiere",
     joinColumns = @JoinColumn(name ="produit_id"),
     inverseJoinColumns = @JoinColumn(name="matiere_id"))

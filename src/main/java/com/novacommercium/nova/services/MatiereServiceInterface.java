@@ -16,6 +16,8 @@ public interface MatiereServiceInterface {
     public List<MatierePremiere> getMatieres();
     public void modifyMatiere(MatierePremiere matiere, String name);
     public MatierePremiere updateMatiere(int id, MatierePremiere matierePremiere);
+    public MatierePremiere addOrigineToMatiere(int id, Origine origine);
+    public MatierePremiere addExisitingOrigineToMatiere(int idm, int ido);
    /* public MatierePremiere getMatiereByOrigineList(List<Origine> origineList);
     public List<MatierePremiere> getMatieresByOrigineList(List<Origine> origineList);*/
 
