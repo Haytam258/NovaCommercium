@@ -10,8 +10,7 @@ import java.util.List;
 
 public interface ProduitRepoInterface extends JpaRepository<Produit, Integer> {
 
-    @Query(value = "SELECT p FROM Produit p WHERE p.name= :name")
-    public Produit getProductByName(@Param("name") String name);
+    public Produit findProduitByName(String name);
     /*public List<Produit> getProduitsByMatierePremiereList(List<MatierePremiere> matierePremiereList);
     public Produit getProduitByMatierePremiereList(List<MatierePremiere> matierePremiereList);*/
 

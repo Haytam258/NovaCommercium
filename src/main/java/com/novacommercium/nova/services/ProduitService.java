@@ -51,7 +51,7 @@ public class ProduitService implements ProduitServiceInterface {
     }
 
     public Produit getProductThroughName(String name){
-        Produit product = productRepo.getProductByName(name);
+        Produit product = productRepo.findProduitByName(name);
         return product;
     }
 

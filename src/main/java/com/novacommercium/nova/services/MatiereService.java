@@ -4,9 +4,11 @@ import com.novacommercium.nova.model.MatierePremiere;
 import com.novacommercium.nova.model.Origine;
 import com.novacommercium.nova.repositories.MatierePreRepoInterface;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class MatiereService implements MatiereServiceInterface{
 
     private final MatierePreRepoInterface matiereRepo;
@@ -33,7 +35,7 @@ public class MatiereService implements MatiereServiceInterface{
     }
 
     public MatierePremiere getMatiereByName(String name){
-        return matiereRepo.getMatierePremiereByName(name);
+        return matiereRepo.findByName(name);
     }
 
     public List<MatierePremiere> getMatieres(){
@@ -43,6 +45,12 @@ public class MatiereService implements MatiereServiceInterface{
     public void modifyMatiere(MatierePremiere matiere, String name){
         matiere.setName(name);
         matiereRepo.saveAndFlush(matiere);
+    }
+
+    public MatierePremiere updateMatiere(int id, MatierePremiere matierePremiere){
+        MatierePremiere mat = matiereRepo.findById(id).get();
+        mat.setName(matierePremiere.getName());
+        return mat;
     }
 
     /*public List<MatierePremiere> getMatieresByOrigineList(List<Origine> origineList){

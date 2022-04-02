@@ -4,9 +4,11 @@ import com.novacommercium.nova.model.MatierePremiere;
 import com.novacommercium.nova.model.Origine;
 import com.novacommercium.nova.repositories.OrigineRepoInterface;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class OrigineService implements OrigineServiceInterface{
 
     private final OrigineRepoInterface origineRepo;
@@ -33,7 +35,7 @@ public class OrigineService implements OrigineServiceInterface{
     }
 
     public Origine getOrigineByEndroit(String endroit){
-        return origineRepo.getOrigineByEndroit(endroit);
+        return origineRepo.findOrigineByEndroit(endroit);
     }
 
     public List<Origine> getOrigines(){
@@ -43,6 +45,13 @@ public class OrigineService implements OrigineServiceInterface{
     public void modifyOrigine(Origine origine,String endroit){
         origine.setEndroit(endroit);
         origineRepo.saveAndFlush(origine);
+    }
+
+    public Origine updateOrigine(int id, Origine origine){
+        Origine orig = origineRepo.findById(Math.toIntExact(id)).get();
+        orig.setEndroit(origine.getEndroit());
+        origineRepo.saveAndFlush(orig);
+        return orig;
     }
 
    /* public List<Origine> getOriginesByMatiereList(List<MatierePremiere> matierePremiereList){

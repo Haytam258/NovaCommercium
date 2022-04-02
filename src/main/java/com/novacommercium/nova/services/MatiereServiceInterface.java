@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
 public interface MatiereServiceInterface {
 
     public void addMatiere(MatierePremiere matiere);
@@ -16,6 +15,7 @@ public interface MatiereServiceInterface {
     public MatierePremiere getMatiereByName(String name);
     public List<MatierePremiere> getMatieres();
     public void modifyMatiere(MatierePremiere matiere, String name);
+    public MatierePremiere updateMatiere(int id, MatierePremiere matierePremiere);
    /* public MatierePremiere getMatiereByOrigineList(List<Origine> origineList);
     public List<MatierePremiere> getMatieresByOrigineList(List<Origine> origineList);*/
 
