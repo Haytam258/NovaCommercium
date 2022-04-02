@@ -18,7 +18,7 @@ public class TraceInvocation {
 
     private static final Logger logger = (Logger) LoggerFactory.getLogger(TraceInvocation.class);
 
-    @Pointcut("execution(* com.novacommercium.nova.services.ProduitService.createProduct())")
+    @Pointcut("execution(* com.novacommercium.nova.services.ProduitService..*(..))")
     public void traceInvocationPointcut() { }
 
     @Around("traceInvocationPointcut()")
@@ -26,7 +26,7 @@ public class TraceInvocation {
         String nomMethode = joinpoint.getTarget().getClass().getSimpleName() + "."
                 + joinpoint.getSignature().getName();
         Object obj =joinpoint.proceed();
-        logger.info(nomMethode);
+        logger.warn(nomMethode);
         return obj;
     }
 

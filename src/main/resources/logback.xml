@@ -46,8 +46,8 @@
     </root>
 
     <!-- LOG "com.baeldung*" at TRACE level -->
-    <logger name="com.novacommercium.aspect"
-            level="trace" additivity="false">
+    <logger name="com.novacommercium.nova.aspect"
+            level="info" additivity="false">
         <appender-ref ref="RollingFile" />
         <appender-ref ref="Console" />
     </logger>
