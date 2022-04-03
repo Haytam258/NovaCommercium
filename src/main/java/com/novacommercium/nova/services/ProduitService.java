@@ -9,6 +9,7 @@ import com.novacommercium.nova.repositories.ProduitRepoInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -84,6 +85,13 @@ public class ProduitService implements ProduitServiceInterface {
     public void addOrigineToProduit(Produit produit, Origine origine){
         produit.addOrigine(origine);
         productRepo.saveAndFlush(produit);
+    }
+
+    public Produit addExisitingMatiereToProduit(int idp, int idm){
+        MatierePremiere mat = matiereRepo.findById(idm).get();
+        Produit prod = productRepo.findById(idp).get();
+        prod.getMatierePremiereList().add(mat);
+        return prod;
     }
 
 }

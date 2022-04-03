@@ -21,4 +21,5 @@ public interface ProduitServiceInterface {
     public Produit addMatiereToProduit(int id,MatierePremiere matierePremiere);
     public void addOrigineToProduit(Produit produit, Origine origine);
     public Produit updateProduct(int id, Produit product);
+    public Produit addExisitingMatiereToProduit(int idp, int idm);
 }

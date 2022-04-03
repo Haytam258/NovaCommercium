@@ -77,5 +77,9 @@ public class ProduitController {
         return productService.getProductByMatiereList(matList);
     }
 
+    @PostMapping("/addMatiereProduct")
+    public Produit addExistingMatiereToProduct(@RequestParam int idp, @RequestParam int idm){
+        return productService.addExisitingMatiereToProduit(idp,idm);
+    }
 
 }
