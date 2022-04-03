@@ -4,10 +4,9 @@ package com.novacommercium.nova.rest;
 import com.novacommercium.nova.model.MatierePremiere;
 import com.novacommercium.nova.model.Produit;
 import com.novacommercium.nova.services.MatiereServiceInterface;
-import com.novacommercium.nova.services.ProduitService;
 import com.novacommercium.nova.services.ProduitServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -80,6 +79,16 @@ public class ProduitController {
     @PostMapping("/addMatiereProduct")
     public Produit addExistingMatiereToProduct(@RequestParam int idp, @RequestParam int idm){
         return productService.addExisitingMatiereToProduit(idp,idm);
+    }
+
+    //In order to pass the ids, add params for each id, keep in mind that this seems to return products that have at least 1 of the ids mentioned, not all of them
+    @GetMapping(value = "/getProducts", params = "ids")
+    public ResponseEntity<List<Produit>> getProductsFromMatiereIDS(@RequestParam List<Integer> ids){
+        List<MatierePremiere> matList = new ArrayList<>();
+        for (Integer id: ids) {
+            matList.add(matiereService.getMatiereById(Math.toIntExact(id)));
+        }
+        return ResponseEntity.ok(productService.getProductsByMatiereList(matList));
     }
 
 }
