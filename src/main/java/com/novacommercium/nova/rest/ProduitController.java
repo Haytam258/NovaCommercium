@@ -2,8 +2,10 @@ package com.novacommercium.nova.rest;
 
 
 import com.novacommercium.nova.model.MatierePremiere;
+import com.novacommercium.nova.model.Origine;
 import com.novacommercium.nova.model.Produit;
 import com.novacommercium.nova.services.MatiereServiceInterface;
+import com.novacommercium.nova.services.OrigineServiceInterface;
 import com.novacommercium.nova.services.ProduitServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -16,14 +18,19 @@ import java.util.List;
 @RestController
 public class ProduitController {
 
+    //RIP Single responsability principle :(
+
     private final ProduitServiceInterface productService;
 
     private final MatiereServiceInterface matiereService;
 
+    private final OrigineServiceInterface origineService;
+
     @Autowired
-    public ProduitController(ProduitServiceInterface productService, MatiereServiceInterface matiereService ){
+    public ProduitController(ProduitServiceInterface productService, MatiereServiceInterface matiereService, OrigineServiceInterface origineService ){
         this.productService = productService;
         this.matiereService = matiereService;
+        this.origineService = origineService;
     }
 
 
@@ -89,6 +96,27 @@ public class ProduitController {
             matList.add(matiereService.getMatiereById(Math.toIntExact(id)));
         }
         return ResponseEntity.ok(productService.getProductsByMatiereList(matList));
+    }
+
+    //Fonctionne correctement, on précise une liste de matières premières en nom et elle va les chercher, au moins une matière doit figurer dans le produit.
+    @GetMapping(value = "/products/", params = "matiere")
+    public ResponseEntity<List<Produit>> getProductsFromMatiere(@RequestParam List<String> matiere){
+        List<MatierePremiere> matList = new ArrayList<>();
+        for( String mat : matiere){
+            matList.add(matiereService.getMatiereByName(mat));
+        }
+        return ResponseEntity.ok(productService.getProductsByMatiereList(matList));
+    }
+
+    //Permet d'obtenir les produits à partir des ids des origines spécifiées, au moins 1 id et non pas tous les ids doivent figurer dans le produit.
+    @GetMapping(value = "/products/matieres/origine", params = "ids")
+    public List<Produit> getProductsFromOrigine(@RequestParam List<Integer> ids){
+        List<Origine> origineList = new ArrayList<>();
+        for (Integer id : ids){
+            origineList.add(origineService.getOrigineById(id));
+        }
+        List<MatierePremiere> matierePremiereList = matiereService.getMatieresByOrigineList(origineList);
+        return productService.getProductsByMatiereList(matierePremiereList);
     }
 
 }
