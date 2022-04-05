@@ -32,6 +32,7 @@ public class Produit {
     private int unite;
 
     //Added cascadetype.All in order to save all new associated entities through HTTP to the Database before doing the add Function.
+    //JsonManagedReference is there in order to fix the Json infinite recursion bug.
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "origine_produit",
     joinColumns =@JoinColumn(name="produit_id"),

@@ -8,6 +8,7 @@ import lombok.ToString;
 import org.aspectj.weaver.ast.Or;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -27,4 +28,12 @@ public class MatierePremiere {
     inverseJoinColumns = @JoinColumn(name = "origine_id"))
     @JsonManagedReference
     private List<Origine> origineList;
+
+    public void add(Origine origine){
+        if(origineList == null){
+            origineList = new ArrayList<>();
+        }
+
+        origineList.add(origine);
+    }
 }
