@@ -69,11 +69,11 @@ public class ProduitService implements ProduitServiceInterface {
     }
 
     public List<Produit> getProductsByMatiereList(List<MatierePremiere> matierePremiereList){
-        return productRepo.findProduitsByMatierePremiereListIn(matierePremiereList);
+        return productRepo.findDistinctProduitsByMatierePremiereListIn(matierePremiereList);
     }
 
     public Produit getProductByMatiereList(List<MatierePremiere> matierePremiereList){
-        return productRepo.findProduitByMatierePremiereListIn(matierePremiereList);
+        return productRepo.findDistinctProduitByMatierePremiereListIn(matierePremiereList);
     }
     public Produit addMatiereToProduit(int id,MatierePremiere matierePremiere){
         Produit produit = productRepo.findById(id).get();
