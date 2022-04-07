@@ -5,6 +5,7 @@ import com.novacommercium.nova.model.*;
 import com.novacommercium.nova.services.MatiereServiceInterface;
 import com.novacommercium.nova.services.OrigineServiceInterface;
 import com.novacommercium.nova.services.ProduitServiceInterface;
+import org.aspectj.weaver.ast.Or;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -135,6 +137,60 @@ public class ProduitController {
             origineList.add(origineService.getOrigineById(id));
         }
         List<MatierePremiere> matierePremiereList = matiereService.getMatieresByOrigineList(origineList);
+        //Itération sur la liste des matières premières pour éliminer les matières premières n'ayant pas une liste d'ogirines de tailles = ids.size()
+        for(Iterator<MatierePremiere> matierePremiereIterator = matierePremiereList.iterator(); matierePremiereIterator.hasNext();){
+            MatierePremiere matierePremiere = matierePremiereIterator.next();
+            if(matierePremiere.getOrigineList().size() != ids.size()){
+                matierePremiereIterator.remove();
+            }
+            //Itération sur l'origine de chaque OrigineList de la matière première pour éliminer les matières premières n'ayant pas une certaine origine spécifiée.
+            else {
+                for(Iterator<Origine> origineIterator = matierePremiere.getOrigineList().iterator(); origineIterator.hasNext();){
+                    Origine origine = origineIterator.next();
+                    if(!(ids.contains(origine.getId()))){
+                        matierePremiereIterator.remove();
+                    }
+                }
+            }
+
+        }
+        return productService.getProductsByMatiereList(matierePremiereList);
+    }
+
+    @GetMapping(value = "/products/matiere", params = "ids")
+    public List<Produit> getProductsFromMatiereUnique(@RequestParam List<Integer> ids){
+        List<MatierePremiere> matierePremiereList = new ArrayList<>();
+        for (Integer id: ids) {
+            matierePremiereList.add(matiereService.getMatiereById(id));
+        }
+        List<Produit> produitList  = productService.getProductsByMatiereList(matierePremiereList);
+        for(Iterator<Produit> produitIterator = produitList.iterator(); produitIterator.hasNext();){
+            Produit produit = produitIterator.next();
+            if(produit.getMatierePremiereList().size() != ids.size()){
+                produitIterator.remove();
+            }
+            else {
+                for(Iterator<MatierePremiere> matierePremiereIterator = produit.getMatierePremiereList().iterator(); matierePremiereIterator.hasNext();){
+                    MatierePremiere matierePremiere = matierePremiereIterator.next();
+                    if(!(ids.contains(matierePremiere.getId()))){
+                        produitIterator.remove();
+                    }
+                }
+            }
+
+        }
+        return produitList;
+    }
+
+    /*
+        Fonctions qui controle uniquement le size des ids, mais ne vérifient pas les ids s'ils sont tous correctes (exemple, on cherche ids = 1, 2, 4, on trouve origines dont id = 1, 2, 3
+     @GetMapping(value = "/products/matieres/origines", params = "ids")
+    public List<Produit> getProductsFromOrigineUnique(@RequestParam List<Integer> ids){
+        List<Origine> origineList = new ArrayList<>();
+        for (Integer id : ids){
+            origineList.add(origineService.getOrigineById(id));
+        }
+        List<MatierePremiere> matierePremiereList = matiereService.getMatieresByOrigineList(origineList);
         for(MatierePremiere matierePremiere : matierePremiereList){
             if(matierePremiere.getOrigineList().size() != ids.size()){
                 matierePremiereList.remove(matierePremiere);
@@ -157,6 +213,9 @@ public class ProduitController {
         }
         return produitList;
     }
+
+    */
+
 
 
 }
