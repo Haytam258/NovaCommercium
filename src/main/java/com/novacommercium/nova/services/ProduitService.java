@@ -11,6 +11,7 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 @Service
@@ -22,11 +23,17 @@ public class ProduitService implements ProduitServiceInterface {
 
     private final CategorieRepoInterface categorieRepo;
 
+    private final MatiereServiceInterface matiereService;
+
+    private final OrigineServiceInterface origineService;
+
     @Autowired
-    public ProduitService(ProduitRepoInterface productRepo, MatierePreRepoInterface matiereRepo, CategorieRepoInterface categorieRepo){
+    public ProduitService(ProduitRepoInterface productRepo, MatierePreRepoInterface matiereRepo, CategorieRepoInterface categorieRepo, MatiereServiceInterface matiereService, OrigineServiceInterface origineService){
         this.matiereRepo = matiereRepo;
         this.productRepo = productRepo;
         this.categorieRepo = categorieRepo;
+        this.matiereService = matiereService;
+        this.origineService = origineService;
     }
 
     public void createProduct(Produit product){
@@ -107,10 +114,60 @@ public class ProduitService implements ProduitServiceInterface {
         return productRepo.findProduitsByCategorie(categorie);
     }
 
-    @Override
     public List<Produit> getProductsByCooperative(Cooperative cooperative) {
         return productRepo.findProduitsByCooperative(cooperative);
     }
+
+    public List<Produit> getProductsFromMatiereUniqueFunction(List<Integer> ids){
+        List<MatierePremiere> matierePremiereList = new ArrayList<>();
+        for (Integer id: ids) {
+            matierePremiereList.add(matiereService.getMatiereById(id));
+        }
+        List<Produit> produitList  = getProductsByMatiereList(matierePremiereList);
+        for(Iterator<Produit> produitIterator = produitList.iterator(); produitIterator.hasNext();){
+            Produit produit = produitIterator.next();
+            if(produit.getMatierePremiereList().size() != ids.size()){
+                produitIterator.remove();
+            }
+            else {
+                for(Iterator<MatierePremiere> matierePremiereIterator = produit.getMatierePremiereList().iterator(); matierePremiereIterator.hasNext();){
+                    MatierePremiere matierePremiere = matierePremiereIterator.next();
+                    if(!(ids.contains(matierePremiere.getId()))){
+                        produitIterator.remove();
+                    }
+                }
+            }
+
+        }
+        return produitList;
+    }
+
+    public List<Produit> getProductsFromOrigineUniqueFunction(List<Integer> ids){
+        List<Origine> origineList = new ArrayList<>();
+        for (Integer id : ids){
+            origineList.add(origineService.getOrigineById(id));
+        }
+        List<MatierePremiere> matierePremiereList = matiereService.getMatieresByOrigineList(origineList);
+        //Itération sur la liste des matières premières pour éliminer les matières premières n'ayant pas une liste d'ogirines de tailles = ids.size()
+        for(Iterator<MatierePremiere> matierePremiereIterator = matierePremiereList.iterator(); matierePremiereIterator.hasNext();){
+            MatierePremiere matierePremiere = matierePremiereIterator.next();
+            if(matierePremiere.getOrigineList().size() != ids.size()){
+                matierePremiereIterator.remove();
+            }
+            //Itération sur l'origine de chaque OrigineList de la matière première pour éliminer les matières premières n'ayant pas une certaine origine spécifiée.
+            else {
+                for(Iterator<Origine> origineIterator = matierePremiere.getOrigineList().iterator(); origineIterator.hasNext();){
+                    Origine origine = origineIterator.next();
+                    if(!(ids.contains(origine.getId()))){
+                        matierePremiereIterator.remove();
+                    }
+                }
+            }
+
+        }
+        return getProductsByMatiereList(matierePremiereList);
+    }
+
 
 
 }

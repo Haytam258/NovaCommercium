@@ -23,5 +23,7 @@ public interface ProduitServiceInterface {
     public List<Produit> retrieveProducts(ProduitSearchCriteria searchCriteria);
     public List<Produit> getProductsByCategorie(Categorie categorie);
     public List<Produit> getProductsByCooperative(Cooperative cooperative);
+    public List<Produit> getProductsFromMatiereUniqueFunction(List<Integer> ids);
+    public List<Produit> getProductsFromOrigineUniqueFunction(List<Integer> ids);
 
 }
