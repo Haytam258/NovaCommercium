@@ -1,8 +1,6 @@
 package com.novacommercium.nova.services;
 
-import com.novacommercium.nova.model.MatierePremiere;
-import com.novacommercium.nova.model.Origine;
-import com.novacommercium.nova.model.Produit;
+import com.novacommercium.nova.model.*;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,4 +20,8 @@ public interface ProduitServiceInterface {
     public void addOrigineToProduit(Produit produit, Origine origine);
     public Produit updateProduct(int id, Produit product);
     public Produit addExisitingMatiereToProduit(int idp, int idm);
+    public List<Produit> retrieveProducts(ProduitSearchCriteria searchCriteria);
+    public List<Produit> getProductsByCategorie(Categorie categorie);
+    public List<Produit> getProductsByCooperative(Cooperative cooperative);
+
 }

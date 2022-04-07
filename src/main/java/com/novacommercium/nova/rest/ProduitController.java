@@ -1,19 +1,19 @@
 package com.novacommercium.nova.rest;
 
 
-import com.novacommercium.nova.model.MatierePremiere;
-import com.novacommercium.nova.model.Origine;
-import com.novacommercium.nova.model.Produit;
+import com.novacommercium.nova.model.*;
 import com.novacommercium.nova.services.MatiereServiceInterface;
 import com.novacommercium.nova.services.OrigineServiceInterface;
 import com.novacommercium.nova.services.ProduitServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @RestController
 public class ProduitController {
@@ -25,6 +25,7 @@ public class ProduitController {
     private final MatiereServiceInterface matiereService;
 
     private final OrigineServiceInterface origineService;
+
 
     @Autowired
     public ProduitController(ProduitServiceInterface productService, MatiereServiceInterface matiereService, OrigineServiceInterface origineService ){
@@ -118,5 +119,44 @@ public class ProduitController {
         List<MatierePremiere> matierePremiereList = matiereService.getMatieresByOrigineList(origineList);
         return productService.getProductsByMatiereList(matierePremiereList);
     }
+
+    /*@GetMapping(value = "/products/matieres/origines", params = "origines")
+    public ResponseEntity<List<ProduitResource>> getProducts(@RequestParam Set<String> origines){
+        ProduitSearchCriteria searchCriteria = ProduitSearchCriteria.builder().origineList(origines).build();
+        List<Produit> products = this.productService.retrieveProducts(searchCriteria);
+        List<ProduitResource> result = ProduitResourceMapper.INSTANCE.map(products);
+        return new ResponseEntity<>(result, HttpStatus.OK);
+    }*/
+
+    @GetMapping(value = "/products/matieres/origines", params = "ids")
+    public List<Produit> getProductsFromOrigineUnique(@RequestParam List<Integer> ids){
+        List<Origine> origineList = new ArrayList<>();
+        for (Integer id : ids){
+            origineList.add(origineService.getOrigineById(id));
+        }
+        List<MatierePremiere> matierePremiereList = matiereService.getMatieresByOrigineList(origineList);
+        for(MatierePremiere matierePremiere : matierePremiereList){
+            if(matierePremiere.getOrigineList().size() != ids.size()){
+                matierePremiereList.remove(matierePremiere);
+            }
+        }
+        return productService.getProductsByMatiereList(matierePremiereList);
+    }
+
+    @GetMapping(value = "/products/matiere", params = "ids")
+    public List<Produit> getProductsFromMatiereUnique(@RequestParam List<Integer> ids){
+        List<MatierePremiere> matierePremiereList = new ArrayList<>();
+        for (Integer id: ids) {
+            matierePremiereList.add(matiereService.getMatiereById(id));
+        }
+        List<Produit> produitList  = productService.getProductsByMatiereList(matierePremiereList);
+        for(Produit produit : produitList){
+            if(produit.getMatierePremiereList().size() != ids.size()){
+                produitList.remove(produit);
+            }
+        }
+        return produitList;
+    }
+
 
 }

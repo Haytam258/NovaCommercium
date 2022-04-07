@@ -1,12 +1,13 @@
 package com.novacommercium.nova.services;
 
 
-import com.novacommercium.nova.model.MatierePremiere;
-import com.novacommercium.nova.model.Origine;
-import com.novacommercium.nova.model.Produit;
+import com.novacommercium.nova.model.*;
+import com.novacommercium.nova.repositories.CategorieRepoInterface;
 import com.novacommercium.nova.repositories.MatierePreRepoInterface;
 import com.novacommercium.nova.repositories.ProduitRepoInterface;
+import com.novacommercium.nova.specifications.ProduitSpecification;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -19,10 +20,13 @@ public class ProduitService implements ProduitServiceInterface {
 
     private final MatierePreRepoInterface matiereRepo;
 
+    private final CategorieRepoInterface categorieRepo;
+
     @Autowired
-    public ProduitService(ProduitRepoInterface productRepo, MatierePreRepoInterface matiereRepo){
+    public ProduitService(ProduitRepoInterface productRepo, MatierePreRepoInterface matiereRepo, CategorieRepoInterface categorieRepo){
         this.matiereRepo = matiereRepo;
         this.productRepo = productRepo;
+        this.categorieRepo = categorieRepo;
     }
 
     public void createProduct(Produit product){
@@ -93,5 +97,20 @@ public class ProduitService implements ProduitServiceInterface {
         prod.getMatierePremiereList().add(mat);
         return prod;
     }
+
+    public List<Produit> retrieveProducts(ProduitSearchCriteria searchCriteria){
+        Specification<Produit> produitSpecification = ProduitSpecification.createProduitSpecifications(searchCriteria);
+        return productRepo.findAll(produitSpecification);
+    }
+
+    public List<Produit> getProductsByCategorie(Categorie categorie){
+        return productRepo.findProduitsByCategorie(categorie);
+    }
+
+    @Override
+    public List<Produit> getProductsByCooperative(Cooperative cooperative) {
+        return productRepo.findProduitsByCooperative(cooperative);
+    }
+
 
 }

@@ -33,14 +33,14 @@ public class Produit {
 
     //Added cascadetype.All in order to save all new associated entities through HTTP to the Database before doing the add Function.
     //JsonManagedReference is there in order to fix the Json infinite recursion bug.
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH} )
     @JoinTable(name = "origine_produit",
     joinColumns =@JoinColumn(name="produit_id"),
     inverseJoinColumns = @JoinColumn(name="origine_id"))
     @JsonManagedReference
     private List<Origine> origineList;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH} )
     @JoinTable(name = "produit_matiere",
     joinColumns = @JoinColumn(name ="produit_id"),
     inverseJoinColumns = @JoinColumn(name="matiere_id"))
@@ -61,4 +61,14 @@ public class Produit {
 
         origineList.add(origine);
     }
+
+    @ManyToOne
+    @JoinColumn(name = "id_categorie")
+    @JsonManagedReference
+    private Categorie categorie;
+
+    @ManyToOne
+    @JoinColumn(name = "id_cooperative")
+    @JsonManagedReference
+    private Cooperative cooperative;
 }
