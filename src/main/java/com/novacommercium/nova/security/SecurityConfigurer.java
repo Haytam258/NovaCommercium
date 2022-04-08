@@ -1,4 +1,4 @@
-package com.novacommercium.nova.config;
+package com.novacommercium.nova.security;
 
 import com.novacommercium.nova.filters.JwtRequestFilter;
 import com.novacommercium.nova.services.MyUserDetailsService;

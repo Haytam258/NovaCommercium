@@ -45,7 +45,6 @@ public class ProduitController {
 
     @PostMapping("/createProduct")
     public void createProduct(@RequestBody Produit product){
-        //It works, adds the entry to database so we're good on this part so far :D
         productService.createProduct(product);
     }
 
@@ -56,7 +55,6 @@ public class ProduitController {
 
     @DeleteMapping("/deleteProduct")
     public void deleteProduct(@RequestParam Long id){
-        //This one works as well, Note : the value passed in the form is not an int but a Long int type, so be careful!
         productService.deleteProductById(Math.toIntExact(id));
     }
 
@@ -71,6 +69,7 @@ public class ProduitController {
         return productService.updateProduct(Math.toIntExact(id), product);
     }
 
+    //Obtenir le produit à partir de la matière première spécifiée sous forme d'objet dans JSON.
     @GetMapping("/productMatiere")
     public Produit getProduitFromMatiere(@RequestBody MatierePremiere matierePremiere){
         List<MatierePremiere> matList = new ArrayList<>();
@@ -78,6 +77,7 @@ public class ProduitController {
         return productService.getProductByMatiereList(matList);
     }
 
+    //Obtenir le produit à partir de l'id de la matière première spécifiée.
     @GetMapping("/productMatiereID/{id}")
     public Produit getProduitFromMatiereID(@PathVariable Long id){
         MatierePremiere mat = matiereService.getMatiereById(Math.toIntExact(id));
@@ -86,12 +86,13 @@ public class ProduitController {
         return productService.getProductByMatiereList(matList);
     }
 
+    //Ajouter une matière première déjà existante dans la base de données au produit.
     @PostMapping("/addMatiereProduct")
     public Produit addExistingMatiereToProduct(@RequestParam int idp, @RequestParam int idm){
         return productService.addExisitingMatiereToProduit(idp,idm);
     }
 
-    //In order to pass the ids, add params for each id, keep in mind that this seems to return products that have at least 1 of the ids mentioned, not all of them
+    //Permet de trouver les produits dont au moins 1 matière première appartient à la liste des ids spécifiées.
     @GetMapping(value = "/getProducts", params = "ids")
     public ResponseEntity<List<Produit>> getProductsFromMatiereIDS(@RequestParam List<Integer> ids){
         List<MatierePremiere> matList = new ArrayList<>();
@@ -122,58 +123,20 @@ public class ProduitController {
         return productService.getProductsByMatiereList(matierePremiereList);
     }
 
-    /*@GetMapping(value = "/products/matieres/origines", params = "origines")
-    public ResponseEntity<List<ProduitResource>> getProducts(@RequestParam Set<String> origines){
-        ProduitSearchCriteria searchCriteria = ProduitSearchCriteria.builder().origineList(origines).build();
-        List<Produit> products = this.productService.retrieveProducts(searchCriteria);
-        List<ProduitResource> result = ProduitResourceMapper.INSTANCE.map(products);
-        return new ResponseEntity<>(result, HttpStatus.OK);
-    }*/
-
+    //Permet d'obtenir les produits dont les origines des matières premières sont exactement ceux spécifiés dans les paramètres de HTTP à travers les id.
     @GetMapping(value = "/products/matieres/origines", params = "ids")
     public List<Produit> getProductsFromOrigineUnique(@RequestParam List<Integer> ids){
         return productService.getProductsFromOrigineUniqueFunction(ids);
     }
 
+    //Permet d'obtenir les produits dont les matières premières sont exactement ceux spécifiées dans les paramètres de HTTP à travers les id.
     @GetMapping(value = "/products/matiere", params = "ids")
     public List<Produit> getProductsFromMatiereUnique(@RequestParam List<Integer> ids){
 
         return productService.getProductsFromMatiereUniqueFunction(ids);
     }
 
-    /*
-        Fonctions qui controle uniquement le size des ids, mais ne vérifient pas les ids s'ils sont tous correctes (exemple, on cherche ids = 1, 2, 4, on trouve origines dont id = 1, 2, 3
-     @GetMapping(value = "/products/matieres/origines", params = "ids")
-    public List<Produit> getProductsFromOrigineUnique(@RequestParam List<Integer> ids){
-        List<Origine> origineList = new ArrayList<>();
-        for (Integer id : ids){
-            origineList.add(origineService.getOrigineById(id));
-        }
-        List<MatierePremiere> matierePremiereList = matiereService.getMatieresByOrigineList(origineList);
-        for(MatierePremiere matierePremiere : matierePremiereList){
-            if(matierePremiere.getOrigineList().size() != ids.size()){
-                matierePremiereList.remove(matierePremiere);
-            }
-        }
-        return productService.getProductsByMatiereList(matierePremiereList);
-    }
 
-    @GetMapping(value = "/products/matiere", params = "ids")
-    public List<Produit> getProductsFromMatiereUnique(@RequestParam List<Integer> ids){
-        List<MatierePremiere> matierePremiereList = new ArrayList<>();
-        for (Integer id: ids) {
-            matierePremiereList.add(matiereService.getMatiereById(id));
-        }
-        List<Produit> produitList  = productService.getProductsByMatiereList(matierePremiereList);
-        for(Produit produit : produitList){
-            if(produit.getMatierePremiereList().size() != ids.size()){
-                produitList.remove(produit);
-            }
-        }
-        return produitList;
-    }
-
-    */
 
 
 

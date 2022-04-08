@@ -24,6 +24,7 @@ public class CooperativeController {
         this.produitService = produitService;
     }
 
+    //Obtenir les produits d'une coopérative à partir de son id.
     @GetMapping("/products/cooperative/{id}")
     public List<Produit> getProductsByCooperative(@PathVariable Long id){
         return produitService.getProductsByCooperative(cooperativeService.getCooperativeById(Math.toIntExact(id)));
