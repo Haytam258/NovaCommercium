@@ -4,6 +4,11 @@ create database if not exists novadb;
 
 use novadb;
 
+create table roles(
+	id int primary key auto_increment,
+    roles enum('ADMIN','CLIENT','UTILISATEUR')
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 create table categorie(
 	id int primary key auto_increment,
     name varchar(255)
@@ -82,7 +87,20 @@ create table Client(
     password varchar(255)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+create table role_client(
+	id_role int,
+    id_client int,
+    foreign key(id_client) references client(id),
+    foreign key(id_role) references roles(id)
+);
+
 INSERT INTO Client VALUES(1,"testing", "testing");
+
+INSERT INTO roles VALUES(1,"ADMIN");
+INSERT INTO roles VALUES(2,"CLIENT");
+INSERT INTO roles VALUES(3,"UTILISATEUR");
+
+INSERT INTO role_client VALUES(1,1);
 
 INSERT INTO secteur VALUES(1,"agricol");
 

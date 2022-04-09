@@ -9,6 +9,7 @@ import org.aspectj.weaver.ast.Or;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -103,6 +104,9 @@ public class ProduitController {
     }
 
     //Fonctionne correctement, on précise une liste de matières premières en nom et elle va les chercher, au moins une matière doit figurer dans le produit.
+    //On précise CLIENT uniquement afin de tester si les roles marchent, on a considéré que le Client est enfaite ADMIN. Ca marche, le client est bloqué de l'accès
+    //meme si pratiquement cela n'a pas de sens.
+    @PreAuthorize("hasAuthority('CLIENT')")
     @GetMapping(value = "/products/", params = "matiere")
     public ResponseEntity<List<Produit>> getProductsFromMatiere(@RequestParam List<String> matiere){
         List<MatierePremiere> matList = new ArrayList<>();

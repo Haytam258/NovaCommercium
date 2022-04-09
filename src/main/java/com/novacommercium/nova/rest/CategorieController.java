@@ -16,6 +16,7 @@ import java.util.List;
 @RestController
 public class CategorieController {
 
+    //On a opté à séparer un peu les fonctionnalités du produit en 3 controllers, afin d'éviter de rendre le produitController trop injecté.
     private final ProduitServiceInterface produitService;
 
     private final CategorieServiceInterface categorieService;
@@ -26,6 +27,7 @@ public class CategorieController {
         this.produitService = produitService;
     }
 
+    //Obtenir les produits par catégorie.
     @GetMapping(value = "/products/category/{id}")
     public List<Produit> getProductsByCategorie(@PathVariable Long id){
         return produitService.getProductsByCategorie(categorieService.getCategorieById(Math.toIntExact(id)));

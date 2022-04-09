@@ -20,7 +20,6 @@ public interface ProduitServiceInterface {
     public void addOrigineToProduit(Produit produit, Origine origine);
     public Produit updateProduct(int id, Produit product);
     public Produit addExisitingMatiereToProduit(int idp, int idm);
-    public List<Produit> retrieveProducts(ProduitSearchCriteria searchCriteria);
     public List<Produit> getProductsByCategorie(Categorie categorie);
     public List<Produit> getProductsByCooperative(Cooperative cooperative);
     public List<Produit> getProductsFromMatiereUniqueFunction(List<Integer> ids);

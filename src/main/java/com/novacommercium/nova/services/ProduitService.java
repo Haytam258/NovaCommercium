@@ -5,7 +5,6 @@ import com.novacommercium.nova.model.*;
 import com.novacommercium.nova.repositories.CategorieRepoInterface;
 import com.novacommercium.nova.repositories.MatierePreRepoInterface;
 import com.novacommercium.nova.repositories.ProduitRepoInterface;
-import com.novacommercium.nova.specifications.ProduitSpecification;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
@@ -105,10 +104,6 @@ public class ProduitService implements ProduitServiceInterface {
         return prod;
     }
 
-    public List<Produit> retrieveProducts(ProduitSearchCriteria searchCriteria){
-        Specification<Produit> produitSpecification = ProduitSpecification.createProduitSpecifications(searchCriteria);
-        return productRepo.findAll(produitSpecification);
-    }
 
     public List<Produit> getProductsByCategorie(Categorie categorie){
         return productRepo.findProduitsByCategorie(categorie);
