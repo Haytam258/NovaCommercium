@@ -106,21 +106,21 @@ INSERT INTO secteur VALUES(1,"agricol");
 
 INSERT INTO region VALUES(1, "SOUS MASSA");
 
-INSERT INTO categorie VALUES(1, "unknown");
+INSERT INTO categorie VALUES(1, "Cosmetique");
 INSERT INTO categorie VALUES(2,"NotCosmetique");
 
-INSERT INTO cooperative VALUES(1,"uknown","0651894562",1,1);
+INSERT INTO cooperative VALUES(1,"Manor","0651894562",1,1);
 
-INSERT INTO produit VALUES(1,"something","name",100,2,1,1);
-INSERT INTO produit VALUES(2,"something2","name2",200,4,2,1);
-INSERT INTO produit VALUES(3,"something3","name3",100,5,1,1);
+INSERT INTO produit VALUES(1,"epice à la couleur rouge","safran",100,2,2,1);
+INSERT INTO produit VALUES(2,"Taux d'acidite 0,15%","huile olive",200,4,2,1);
+INSERT INTO produit VALUES(3,"une huile rare et precieuse","huile argan",100,5,1,1);
 
-INSERT INTO origine VALUES(1,"unEndroit");
-INSERT INTO origine VALUES(2,"unAutreEndroit");
-INSERT INTO origine VALUES(3,"endroitDifferent");
+INSERT INTO origine VALUES(1,"taliouine");
+INSERT INTO origine VALUES(2,"Kelaat Sraghna");
+INSERT INTO origine VALUES(3,"oud Flacon");
 
-INSERT INTO matiere_premiere VALUES(1,"somethingElse");
-INSERT INTO matiere_premiere VALUES(2,"hidden_something");
+INSERT INTO matiere_premiere VALUES(1,"amllou");
+INSERT INTO matiere_premiere VALUES(2,"miel");
 
 
 INSERT INTO produit_matiere VALUES(1,2);
@@ -129,6 +129,7 @@ INSERT INTO produit_matiere VALUES(2,1);
 
 INSERT INTO origine_matiere VALUES(3,2);
 INSERT INTO origine_matiere VALUES(2,2);
+INSERT INTO origine_matiere VALUES(2,1);
 
 
 

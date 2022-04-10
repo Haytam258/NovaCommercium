@@ -1,361 +1,62 @@
-2022-04-09 12:35:19,694 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting NovaApplication using Java 17.0.1 on MSI with PID 9072 (C:\Users\Haytam\OneDrive\Bureau\Haytam\Programming Practice\Spring practice\Spring guestbook app\nova\target\classes started by Haytam in C:\Users\Haytam\OneDrive\Bureau\Haytam\Programming Practice\Spring practice\Spring guestbook app\nova)
-2022-04-09 12:35:19,700 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
-2022-04-09 12:35:19,755 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-04-09 12:35:19,755 INFO org.springframework.boot.logging.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-04-09 12:35:20,684 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-04-09 12:35:20,793 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 95 ms. Found 8 JPA repository interfaces.
-2022-04-09 12:35:21,689 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
-2022-04-09 12:35:21,700 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
-2022-04-09 12:35:21,701 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
-2022-04-09 12:35:21,701 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.58]
-2022-04-09 12:35:21,813 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
-2022-04-09 12:35:21,813 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 2057 ms
-2022-04-09 12:35:21,866 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
-2022-04-09 12:35:22,320 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
-2022-04-09 12:35:22,330 INFO org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration [restartedMain] H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/novadb'
-2022-04-09 12:35:22,576 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-04-09 12:35:22,651 INFO org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.6.5.Final
-2022-04-09 12:35:22,845 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-04-09 12:35:22,963 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
-2022-04-09 12:35:23,768 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-04-09 12:35:23,779 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-04-09 12:35:24,241 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-04-09 12:35:24,823 INFO org.springframework.security.web.DefaultSecurityFilterChain [restartedMain] Will not secure any request
-2022-04-09 12:35:25,110 INFO org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping [restartedMain] Adding welcome page template: index
-2022-04-09 12:35:25,420 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
-2022-04-09 12:35:25,446 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
-2022-04-09 12:35:25,467 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
-2022-04-09 12:35:25,481 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started NovaApplication in 6.179 seconds (JVM running for 7.314)
-2022-04-09 12:35:32,124 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-04-09 12:35:32,125 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
-2022-04-09 12:35:32,129 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-2] Completed initialization in 3 ms
-2022-04-09 12:35:32,255 ERROR org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-2] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
-io.jsonwebtoken.ExpiredJwtException: JWT expired at 2022-04-07T21:20:54Z. Current time: 2022-04-09T12:35:32Z, a difference of 141278250 milliseconds.  Allowed clock skew: 0 milliseconds.
-	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:385)
-	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:481)
-	at io.jsonwebtoken.impl.DefaultJwtParser.parseClaimsJws(DefaultJwtParser.java:541)
-	at com.novacommercium.nova.utils.JWTUtil.extractAllClaims(JWTUtil.java:31)
-	at com.novacommercium.nova.utils.JWTUtil.extractClaim(JWTUtil.java:27)
-	at com.novacommercium.nova.utils.JWTUtil.extractUsername(JWTUtil.java:19)
-	at com.novacommercium.nova.filters.JwtRequestFilter.doFilterInternal(JwtRequestFilter.java:37)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
-	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:110)
-	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:80)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:211)
-	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:183)
-	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354)
-	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:359)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:889)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1735)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-2022-04-09 12:36:25,053 WARN org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver [http-nio-8080-exec-3] Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
-2022-04-09 12:37:19,382 WARN org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver [http-nio-8080-exec-4] Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' not supported]
-2022-04-09 12:37:24,196 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-7] User testing used : ProduitService.getAllProducts
-2022-04-09 12:38:21,991 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-8] User testing used : OrigineService.getOrigineById
-2022-04-09 12:38:21,996 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-8] User testing used : OrigineService.getOrigineById
-2022-04-09 12:38:22,020 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-8] User testing used : MatiereService.getMatieresByOrigineList
-2022-04-09 12:38:22,032 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-8] User testing used : ProduitService.getProductsFromOrigineUniqueFunction
-2022-04-09 12:38:26,606 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-6] User testing used : OrigineService.getOrigineById
-2022-04-09 12:38:26,611 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-6] User testing used : OrigineService.getOrigineById
-2022-04-09 12:38:26,614 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-6] User testing used : MatiereService.getMatieresByOrigineList
-2022-04-09 12:38:26,625 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-6] User testing used : ProduitService.getProductsFromOrigineUniqueFunction
-2022-04-09 12:38:44,965 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-9] User testing used : OrigineService.getOrigineById
-2022-04-09 12:38:44,975 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-9] User testing used : OrigineService.getOrigineById
-2022-04-09 12:38:44,982 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-9] User testing used : MatiereService.getMatieresByOrigineList
-2022-04-09 12:38:44,991 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-9] User testing used : ProduitService.getProductsFromOrigineUniqueFunction
-2022-04-09 12:38:51,287 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-10] User testing used : OrigineService.getOrigineById
-2022-04-09 12:38:51,291 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-10] User testing used : OrigineService.getOrigineById
-2022-04-09 12:38:51,294 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-10] User testing used : MatiereService.getMatieresByOrigineList
-2022-04-09 12:38:51,299 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-10] User testing used : ProduitService.getProductsByMatiereList
-2022-04-09 12:39:11,003 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-1] User testing used : OrigineService.getOrigineById
-2022-04-09 12:39:11,013 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-1] User testing used : OrigineService.getOrigineById
-2022-04-09 12:39:11,019 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-1] User testing used : MatiereService.getMatieresByOrigineList
-2022-04-09 12:39:11,027 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-1] User testing used : ProduitService.getProductsFromOrigineUniqueFunction
-2022-04-09 12:40:23,895 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-5] User testing used : MatiereService.getMatiereById
-2022-04-09 12:40:23,903 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-5] User testing used : ProduitService.getProductsFromMatiereUniqueFunction
-2022-04-09 12:40:42,944 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-4] User testing used : MatiereService.getMatiereById
-2022-04-09 12:40:42,948 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-4] User testing used : MatiereService.getMatiereById
-2022-04-09 12:40:42,956 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-4] User testing used : ProduitService.getProductsFromMatiereUniqueFunction
-2022-04-09 12:41:12,497 WARN org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver [http-nio-8080-exec-8] Resolved [org.springframework.web.bind.UnsatisfiedServletRequestParameterException: Parameter conditions "matiere" not met for actual request parameters: ids={2,1}]
-2022-04-09 12:42:42,692 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-9] User testing used : MatiereService.getMatiereByName
-2022-04-09 12:42:42,697 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-9] User testing used : ProduitService.getProductsByMatiereList
-2022-04-09 12:44:39,095 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-2] User testing used : OrigineService.getOrigineById
-2022-04-09 12:44:39,100 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-2] User testing used : OrigineService.getOrigineById
-2022-04-09 12:44:39,102 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-2] User testing used : MatiereService.getMatieresByOrigineList
-2022-04-09 12:44:39,109 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-2] User testing used : ProduitService.getProductsFromOrigineUniqueFunction
-2022-04-09 12:44:52,061 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-3] User testing used : OrigineService.getOrigineById
-2022-04-09 12:44:52,065 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-3] User testing used : OrigineService.getOrigineById
-2022-04-09 12:44:52,068 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-3] User testing used : MatiereService.getMatieresByOrigineList
-2022-04-09 12:44:52,072 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-3] User testing used : ProduitService.getProductsFromOrigineUniqueFunction
-2022-04-09 12:45:10,547 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-5] User testing used : OrigineService.getOrigineById
-2022-04-09 12:45:10,573 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-5] User testing used : OrigineService.getOrigineById
-2022-04-09 12:45:10,579 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-5] User testing used : MatiereService.getMatieresByOrigineList
-2022-04-09 12:45:10,593 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-5] User testing used : ProduitService.getProductsByMatiereList
-2022-04-09 12:45:51,661 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-4] User testing used : MatiereService.getMatiereByName
-2022-04-09 12:45:51,665 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-4] User testing used : ProduitService.getProductsByMatiereList
-2022-04-09 12:47:19,764 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-04-09 12:47:19,778 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
-2022-04-09 12:47:19,820 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
-2022-04-09 17:11:54,959 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting NovaApplication using Java 17.0.1 on MSI with PID 4572 (C:\Users\Haytam\OneDrive\Bureau\Haytam\Programming Practice\Spring practice\Spring guestbook app\nova\target\classes started by Haytam in C:\Users\Haytam\OneDrive\Bureau\Haytam\Programming Practice\Spring practice\Spring guestbook app\nova)
-2022-04-09 17:11:54,962 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
-2022-04-09 17:11:55,020 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-04-09 17:11:55,020 INFO org.springframework.boot.logging.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-04-09 17:11:55,948 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-04-09 17:11:56,057 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 98 ms. Found 8 JPA repository interfaces.
-2022-04-09 17:11:56,975 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
-2022-04-09 17:11:56,985 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
-2022-04-09 17:11:56,986 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
-2022-04-09 17:11:56,986 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.58]
-2022-04-09 17:11:57,103 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
-2022-04-09 17:11:57,103 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 2082 ms
-2022-04-09 17:11:57,165 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
-2022-04-09 17:11:57,603 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
-2022-04-09 17:11:57,613 INFO org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration [restartedMain] H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/novadb'
-2022-04-09 17:11:57,859 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-04-09 17:11:57,939 INFO org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.6.5.Final
-2022-04-09 17:11:58,114 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-04-09 17:11:58,248 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
-2022-04-09 17:11:59,182 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-04-09 17:11:59,191 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-04-09 17:11:59,692 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-04-09 17:12:00,246 INFO org.springframework.security.web.DefaultSecurityFilterChain [restartedMain] Will not secure any request
-2022-04-09 17:12:00,576 INFO org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping [restartedMain] Adding welcome page template: index
-2022-04-09 17:12:00,967 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
-2022-04-09 17:12:00,995 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
-2022-04-09 17:12:01,022 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
-2022-04-09 17:12:01,035 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started NovaApplication in 6.466 seconds (JVM running for 7.554)
-2022-04-09 17:14:24,680 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting NovaApplication using Java 17.0.1 on MSI with PID 31784 (C:\Users\Haytam\OneDrive\Bureau\Haytam\Programming Practice\Spring practice\Spring guestbook app\nova\target\classes started by Haytam in C:\Users\Haytam\OneDrive\Bureau\Haytam\Programming Practice\Spring practice\Spring guestbook app\nova)
-2022-04-09 17:14:24,682 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
-2022-04-09 17:14:24,737 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-04-09 17:14:24,737 INFO org.springframework.boot.logging.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-04-09 17:14:25,510 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-04-09 17:14:25,601 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 83 ms. Found 8 JPA repository interfaces.
-2022-04-09 17:14:26,494 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
-2022-04-09 17:14:26,503 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
-2022-04-09 17:14:26,504 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
-2022-04-09 17:14:26,505 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.58]
-2022-04-09 17:14:26,612 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
-2022-04-09 17:14:26,612 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 1875 ms
-2022-04-09 17:14:26,663 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
-2022-04-09 17:14:26,966 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
-2022-04-09 17:14:26,977 INFO org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration [restartedMain] H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/novadb'
-2022-04-09 17:14:27,212 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-04-09 17:14:27,276 INFO org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.6.5.Final
-2022-04-09 17:14:27,403 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-04-09 17:14:27,510 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
-2022-04-09 17:14:28,345 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-04-09 17:14:28,354 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-04-09 17:14:28,809 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-04-09 17:14:29,316 INFO org.springframework.security.web.DefaultSecurityFilterChain [restartedMain] Will not secure any request
-2022-04-09 17:14:29,622 INFO org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping [restartedMain] Adding welcome page template: index
-2022-04-09 17:14:29,949 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
-2022-04-09 17:14:29,977 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
-2022-04-09 17:14:29,995 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
-2022-04-09 17:14:30,007 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started NovaApplication in 5.664 seconds (JVM running for 6.524)
-2022-04-09 17:14:51,165 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-3] Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-04-09 17:14:51,166 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-3] Initializing Servlet 'dispatcherServlet'
-2022-04-09 17:14:51,168 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-3] Completed initialization in 1 ms
-2022-04-09 17:14:51,200 WARN org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver [http-nio-8080-exec-3] Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
-2022-04-09 17:20:35,015 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-04-09 17:20:35,022 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
-2022-04-09 17:20:35,035 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
-2022-04-09 17:21:05,896 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting NovaApplication using Java 17.0.1 on MSI with PID 18760 (C:\Users\Haytam\OneDrive\Bureau\Haytam\Programming Practice\Spring practice\Spring guestbook app\nova\target\classes started by Haytam in C:\Users\Haytam\OneDrive\Bureau\Haytam\Programming Practice\Spring practice\Spring guestbook app\nova)
-2022-04-09 17:21:05,899 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
-2022-04-09 17:21:05,952 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-04-09 17:21:05,953 INFO org.springframework.boot.logging.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-04-09 17:21:06,790 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-04-09 17:21:06,888 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 88 ms. Found 8 JPA repository interfaces.
-2022-04-09 17:21:07,700 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
-2022-04-09 17:21:07,710 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
-2022-04-09 17:21:07,711 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
-2022-04-09 17:21:07,711 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.58]
-2022-04-09 17:21:07,811 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
-2022-04-09 17:21:07,811 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 1858 ms
-2022-04-09 17:21:07,861 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
-2022-04-09 17:21:08,262 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
-2022-04-09 17:21:08,272 INFO org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration [restartedMain] H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/novadb'
-2022-04-09 17:21:08,505 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-04-09 17:21:08,563 INFO org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.6.5.Final
-2022-04-09 17:21:08,703 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-04-09 17:21:08,823 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
-2022-04-09 17:21:09,711 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-04-09 17:21:09,736 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-04-09 17:21:10,225 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-04-09 17:21:10,733 INFO org.springframework.security.web.DefaultSecurityFilterChain [restartedMain] Will not secure any request
-2022-04-09 17:21:11,047 INFO org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping [restartedMain] Adding welcome page template: index
-2022-04-09 17:21:11,381 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
-2022-04-09 17:21:11,407 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
-2022-04-09 17:21:11,425 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
-2022-04-09 17:21:11,438 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started NovaApplication in 5.891 seconds (JVM running for 6.757)
-2022-04-09 17:21:32,096 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-3] Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-04-09 17:21:32,097 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-3] Initializing Servlet 'dispatcherServlet'
-2022-04-09 17:21:32,102 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-3] Completed initialization in 3 ms
-2022-04-09 17:22:42,901 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-04-09 17:22:42,905 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
-2022-04-09 17:22:42,916 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
-2022-04-09 17:22:49,255 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting NovaApplication using Java 17.0.1 on MSI with PID 23240 (C:\Users\Haytam\OneDrive\Bureau\Haytam\Programming Practice\Spring practice\Spring guestbook app\nova\target\classes started by Haytam in C:\Users\Haytam\OneDrive\Bureau\Haytam\Programming Practice\Spring practice\Spring guestbook app\nova)
-2022-04-09 17:22:49,259 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
-2022-04-09 17:22:49,308 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-04-09 17:22:49,309 INFO org.springframework.boot.logging.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-04-09 17:22:50,059 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-04-09 17:22:50,150 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 82 ms. Found 8 JPA repository interfaces.
-2022-04-09 17:22:50,953 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
-2022-04-09 17:22:50,962 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
-2022-04-09 17:22:50,963 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
-2022-04-09 17:22:50,963 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.58]
-2022-04-09 17:22:51,140 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
-2022-04-09 17:22:51,140 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 1831 ms
-2022-04-09 17:22:51,191 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
-2022-04-09 17:22:51,487 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
-2022-04-09 17:22:51,497 INFO org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration [restartedMain] H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/novadb'
-2022-04-09 17:22:51,758 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-04-09 17:22:51,821 INFO org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.6.5.Final
-2022-04-09 17:22:51,950 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-04-09 17:22:52,052 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
-2022-04-09 17:22:53,012 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-04-09 17:22:53,036 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-04-09 17:22:53,538 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-04-09 17:22:54,032 INFO org.springframework.security.web.DefaultSecurityFilterChain [restartedMain] Will not secure any request
-2022-04-09 17:22:54,350 INFO org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping [restartedMain] Adding welcome page template: index
-2022-04-09 17:22:54,701 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
-2022-04-09 17:22:54,729 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
-2022-04-09 17:22:54,747 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
-2022-04-09 17:22:54,759 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started NovaApplication in 5.887 seconds (JVM running for 6.799)
-2022-04-09 17:23:04,942 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-04-09 17:23:04,943 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
-2022-04-09 17:23:04,944 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-2] Completed initialization in 1 ms
-2022-04-09 17:23:42,432 ERROR org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-4] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
-org.hibernate.LazyInitializationException: failed to lazily initialize a collection of role: com.novacommercium.nova.model.Client.roles, could not initialize proxy - no Session
-	at org.hibernate.collection.internal.AbstractPersistentCollection.throwLazyInitializationException(AbstractPersistentCollection.java:612)
-	at org.hibernate.collection.internal.AbstractPersistentCollection.withTemporarySessionIfNeeded(AbstractPersistentCollection.java:218)
-	at org.hibernate.collection.internal.AbstractPersistentCollection.initialize(AbstractPersistentCollection.java:591)
-	at org.hibernate.collection.internal.AbstractPersistentCollection.read(AbstractPersistentCollection.java:149)
-	at org.hibernate.collection.internal.PersistentBag.iterator(PersistentBag.java:387)
-	at java.base/java.lang.Iterable.forEach(Iterable.java:74)
-	at com.novacommercium.nova.services.MyUserDetailsService.loadUserByUsername(MyUserDetailsService.java:34)
-	at com.novacommercium.nova.filters.JwtRequestFilter.doFilterInternal(JwtRequestFilter.java:41)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
-	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:110)
-	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:80)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:211)
-	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:183)
-	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354)
-	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:359)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:889)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1735)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-2022-04-09 17:24:21,676 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-04-09 17:24:21,679 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
-2022-04-09 17:24:21,690 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
-2022-04-09 17:24:27,967 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting NovaApplication using Java 17.0.1 on MSI with PID 6772 (C:\Users\Haytam\OneDrive\Bureau\Haytam\Programming Practice\Spring practice\Spring guestbook app\nova\target\classes started by Haytam in C:\Users\Haytam\OneDrive\Bureau\Haytam\Programming Practice\Spring practice\Spring guestbook app\nova)
-2022-04-09 17:24:27,969 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
-2022-04-09 17:24:28,020 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-04-09 17:24:28,020 INFO org.springframework.boot.logging.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-04-09 17:24:28,806 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-04-09 17:24:28,895 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 81 ms. Found 8 JPA repository interfaces.
-2022-04-09 17:24:29,892 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
-2022-04-09 17:24:29,900 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
-2022-04-09 17:24:29,902 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
-2022-04-09 17:24:29,902 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.58]
-2022-04-09 17:24:30,006 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
-2022-04-09 17:24:30,006 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 1983 ms
-2022-04-09 17:24:30,058 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
-2022-04-09 17:24:30,371 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
-2022-04-09 17:24:30,385 INFO org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration [restartedMain] H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/novadb'
-2022-04-09 17:24:30,639 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-04-09 17:24:30,706 INFO org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.6.5.Final
-2022-04-09 17:24:30,840 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-04-09 17:24:30,958 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
-2022-04-09 17:24:31,786 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-04-09 17:24:31,812 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-04-09 17:24:32,411 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-04-09 17:24:32,939 INFO org.springframework.security.web.DefaultSecurityFilterChain [restartedMain] Will not secure any request
-2022-04-09 17:24:33,244 INFO org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping [restartedMain] Adding welcome page template: index
-2022-04-09 17:24:33,594 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
-2022-04-09 17:24:33,620 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
-2022-04-09 17:24:33,638 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
-2022-04-09 17:24:33,650 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started NovaApplication in 6.058 seconds (JVM running for 6.997)
-2022-04-09 17:24:37,224 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-3] Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-04-09 17:24:37,224 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-3] Initializing Servlet 'dispatcherServlet'
-2022-04-09 17:24:37,225 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-3] Completed initialization in 1 ms
-2022-04-09 17:25:56,705 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-04-09 17:25:56,708 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
-2022-04-09 17:25:56,718 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2022-04-10 15:19:52,965 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting NovaApplication using Java 17.0.1 on MSI with PID 26172 (C:\Users\Haytam\OneDrive\Bureau\Haytam\Programming Practice\Spring practice\Spring guestbook app\nova\target\classes started by Haytam in C:\Users\Haytam\OneDrive\Bureau\Haytam\Programming Practice\Spring practice\Spring guestbook app\nova)
+2022-04-10 15:19:52,969 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-04-10 15:19:53,022 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-04-10 15:19:53,022 INFO org.springframework.boot.logging.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-04-10 15:19:54,017 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-04-10 15:19:54,127 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 99 ms. Found 8 JPA repository interfaces.
+2022-04-10 15:19:54,995 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2022-04-10 15:19:55,004 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2022-04-10 15:19:55,005 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2022-04-10 15:19:55,005 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.58]
+2022-04-10 15:19:55,121 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2022-04-10 15:19:55,122 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 2098 ms
+2022-04-10 15:19:55,196 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2022-04-10 15:19:55,618 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2022-04-10 15:19:55,634 INFO org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration [restartedMain] H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/novadb'
+2022-04-10 15:19:55,889 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-04-10 15:19:55,951 INFO org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.6.5.Final
+2022-04-10 15:19:56,090 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-04-10 15:19:56,205 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-04-10 15:19:57,001 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-04-10 15:19:57,010 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-04-10 15:19:57,495 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-04-10 15:19:58,022 INFO org.springframework.security.web.DefaultSecurityFilterChain [restartedMain] Will not secure any request
+2022-04-10 15:19:58,335 INFO org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping [restartedMain] Adding welcome page template: index
+2022-04-10 15:19:58,683 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2022-04-10 15:19:58,710 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2022-04-10 15:19:58,729 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2022-04-10 15:19:58,743 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started NovaApplication in 6.136 seconds (JVM running for 7.19)
+2022-04-10 15:20:12,617 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-04-10 15:20:12,618 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
+2022-04-10 15:20:12,620 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-2] Completed initialization in 2 ms
+2022-04-10 15:20:39,105 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-3] User testing used : OrigineService.getOrigineById
+2022-04-10 15:20:39,110 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-3] User testing used : OrigineService.getOrigineById
+2022-04-10 15:20:39,136 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-3] User testing used : MatiereService.getMatieresByOrigineList
+2022-04-10 15:20:39,156 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-3] User testing used : ProduitService.getProductsFromOrigineUniqueFunction
+2022-04-10 15:20:51,174 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-4] User testing used : OrigineService.getOrigineById
+2022-04-10 15:20:51,177 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-4] User testing used : MatiereService.getMatieresByOrigineList
+2022-04-10 15:20:51,182 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-4] User testing used : ProduitService.getProductsFromOrigineUniqueFunction
+2022-04-10 15:20:54,932 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-5] User testing used : OrigineService.getOrigineById
+2022-04-10 15:20:54,934 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-5] User testing used : MatiereService.getMatieresByOrigineList
+2022-04-10 15:20:54,938 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-5] User testing used : ProduitService.getProductsFromOrigineUniqueFunction
+2022-04-10 15:20:58,035 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-6] User testing used : OrigineService.getOrigineById
+2022-04-10 15:20:58,037 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-6] User testing used : MatiereService.getMatieresByOrigineList
+2022-04-10 15:20:58,038 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-6] User testing used : ProduitService.getProductsFromOrigineUniqueFunction
+2022-04-10 15:21:08,766 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-7] User testing used : OrigineService.getOrigineById
+2022-04-10 15:21:08,768 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-7] User testing used : MatiereService.getMatieresByOrigineList
+2022-04-10 15:21:08,771 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-7] User testing used : ProduitService.getProductsByMatiereList
+2022-04-10 15:21:12,710 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-8] User testing used : OrigineService.getOrigineById
+2022-04-10 15:21:12,714 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-8] User testing used : MatiereService.getMatieresByOrigineList
+2022-04-10 15:21:12,720 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-8] User testing used : ProduitService.getProductsByMatiereList
+2022-04-10 15:22:29,563 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-1] User testing used : OrigineService.getOrigineById
+2022-04-10 15:22:29,566 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-1] User testing used : MatiereService.getMatieresByOrigineList
+2022-04-10 15:22:29,572 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-1] User testing used : ProduitService.getProductsByMatiereList
+2022-04-10 15:23:00,008 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-2] User testing used : OrigineService.getOrigineById
+2022-04-10 15:23:00,012 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-2] User testing used : MatiereService.getMatieresByOrigineList
+2022-04-10 15:23:00,022 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-2] User testing used : ProduitService.getProductsFromOrigineUniqueFunction
+2022-04-10 15:23:28,110 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-3] User testing used : OrigineService.getOrigineById
+2022-04-10 15:23:28,113 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-3] User testing used : MatiereService.getMatieresByOrigineList
+2022-04-10 15:23:28,116 WARN com.novacommercium.nova.aspect.TraceInvocation [http-nio-8080-exec-3] User testing used : ProduitService.getProductsFromOrigineUniqueFunction
+2022-04-10 15:24:04,323 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-04-10 15:24:04,337 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2022-04-10 15:24:04,354 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
